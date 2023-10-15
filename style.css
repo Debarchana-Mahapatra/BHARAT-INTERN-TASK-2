@@ -1,40 +1,23 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-}
-
-header {
-    background-color: #c517b9;
-    color: #fff;
     text-align: center;
-    padding: 10px;
+    box-sizing: border-box;
+    display: grid;
+    background-color: #778f16;
 }
 
-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
+.container {
+    margin-top: 20px;
 }
 
-input,
-textarea {
-    width: 100%;
-    margin-bottom: 10px;
+input[type="text"] {
+    padding: 8px;
+    margin-right: 8px;
 }
 
 button {
-    background-color: #e11616;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #955f5f;
-}
-
-#blogPosts {
-    max-width: 800px;
-    margin: 0 auto;
+    padding: 8px 16px;
+    color: #006064;
+    transform:scale(1.1);
+    transition: all 1s;
 }
