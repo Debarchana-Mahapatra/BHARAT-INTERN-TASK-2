@@ -1,30 +1,23 @@
-document.getElementById('postForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+function addTask() {
+    var taskInput = document.getElementById('taskInput');
+    var taskList = document.getElementById('taskList');
 
-    const title = document.getElementById('title').value;
-    const content = document.getElementById('content').value;
-    const image = document.getElementById('image').files[0];
-    const video = document.getElementById('video').value;
-
-    // Create a new blog post element
-    const postElement = document.createElement('div');
-    postElement.classList.add('post');
-
-    let postHTML = `<h2>${title}</h2><p>${content}</p>`;
-
-    if (image) {
-        const imageURL = URL.createObjectURL(image);
-        postHTML += `<img src="${imageURL}" alt="${title}">`;
+    if (taskInput.value.trim() !== '') {
+        var listItem = document.createElement('li');
+        listItem.textContent = taskInput.value;
+        listItem.innerHTML += ' <button onclick="deleteTask(this)">Delete</button> <button onclick="completeTask(this)">Complete</button>';
+        taskList.appendChild(listItem);
+        taskInput.value = '';
     }
+}
 
-    if (video) {
-        postHTML += `<iframe width="560" height="315" src="${video}" frameborder="0"></iframe>`;
-    }
+function deleteTask(element) {
+    var listItem = element.parentElement;
+    listItem.remove();
+}
 
-    postElement.innerHTML = postHTML;
-
-    document.getElementById('blogPosts').appendChild(postElement);
-
-    // Reset form fields
-    document.getElementById('postForm').reset();
-});
+function completeTask(element) {
+    var listItem = element.parentElement;
+    listItem.style.textDecoration = 'line-through';
+    element.style.display = 'none';
+}
